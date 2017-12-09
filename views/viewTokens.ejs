@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Tokens</title>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+
+      function handleImageSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+      //  alert(element.cells.item(4).querySelector('input').value);
+        document.getElementById('selectedImage').value = element.cells.item(5).querySelector('input').value;
+
+        //highlight function
+
+        var table = document.getElementById('display-table');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+      }
+      function handleFlavorSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+       // alert(element.cells.item(3).querySelector('input').value);
+        document.getElementById('selectedFlavor').value = element.cells.item(3).querySelector('input').value;
+
+
+         //highlight function
+
+        var table = document.getElementById('display-table2');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+
+      }
+
+
+      function handleNetworkSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+      //  alert(element.cells.item(4).querySelector('input').value);
+        document.getElementById('selectedNetwork').value = element.cells.item(3).querySelector('input').value;
+
+
+        //highlight function
+
+        var table = document.getElementById('display-table3');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+
+
+      }
+      window.onload = "/viewFlavors";
+    </script>
+    <title>servertest</title>
+
+     <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="col-md-10 col-md-offset-1">
+<div id="wrapper">
+
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Project CMPE 297-10 Team 11</a>
+    </div>
+    <ul class="nav navbar-nav">
+                    <li>
+
+                    </li>
+                    <li>
+                        <a href="/Home "></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="/viewFlavors">Flavors</a>
+                    </li>
+                    <li>
+                        <a href="/viewImages">Images</a>
+                    </li>
+                    <li>
+                        <a href="/viewNetworks">Networks</a>
+                    </li>
+                    <li>
+                        <a href="/viewSecurityGroups">Security Groups</a>
+                    </li>
+                    <li>
+                        <a href="/viewServers">Servers</a>
+                    </li>
+                    <li>
+                        <a href="/viewTokens">Tokens</a>
+                    </li>
+                    <li>
+                        <a href="http://10.0.2.15:8400/wetty/ssh/suryaprakash" target="_blank">Terminal</a>
+                    </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+      <li><a href="/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+    </ul>
+  </div>
+</nav> 
+
+        <div id="page-wrapper">
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                    
+                      <div class="panel panel-default">
+                          
+                            <div class="panel-heading">
+                               <h4 style="text-align:center; font-weight:bold">View Tokens</h4>
+                            </div>
+                          
+                        <div class="panel-body">
+                            
+                            <div class="table-responsive table-bordered">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Project Name</th>
+                                            <th>Token</th>
+                                            <th>Project Token</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>                                             
+                                             <td><%= project.name %></td>                                                                                         
+                                             <td><%= token %></td>
+                                             
+                                              
+                                             <td><%= projectToken %></td>
+                                        </tr>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>          <!-- /.table-responsive -->
+                            
+                         </div>             <!-- /.panel-body -->
+                        
+                      </div>                <!-- /.panel -->
+                    
+                  </div>                    <!-- /.col-lg-12 -->
+                
+              </div>                        <!-- /.row -->
+                                              
+           </div>                           <!-- /#page-wrapper -->
+        
+      </div>                                 <!-- /#wrapper -->
+    </div>
+   </body>
+</html>

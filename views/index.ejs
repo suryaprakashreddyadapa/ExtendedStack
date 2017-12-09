@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Log In</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+
+      function handleImageSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+      //  alert(element.cells.item(4).querySelector('input').value);
+        document.getElementById('selectedImage').value = element.cells.item(5).querySelector('input').value;
+
+        //highlight function
+
+        var table = document.getElementById('display-table');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+      }
+      function handleFlavorSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+       // alert(element.cells.item(3).querySelector('input').value);
+        document.getElementById('selectedFlavor').value = element.cells.item(3).querySelector('input').value;
+
+
+         //highlight function
+
+        var table = document.getElementById('display-table2');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+
+      }
+
+
+      function handleNetworkSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+      //  alert(element.cells.item(4).querySelector('input').value);
+        document.getElementById('selectedNetwork').value = element.cells.item(3).querySelector('input').value;
+
+
+        //highlight function
+
+        var table = document.getElementById('display-table3');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+
+
+      }
+      window.onload = "/viewFlavors";
+    </script>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header" >
+              <a class="navbar-brand"  href="index.html" >Project CMPE 297-10 Team 11</a>
+            </div>
+        </nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-md-offset-3 ">
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">User Login</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal" name="newuser" method="post" action="/loginUser">
+
+                  <!--          <div class="form-group">
+                                <label for="host" class="control-label col-sm-2">Host</label>
+                                <div class="col-sm-10">
+                                    <select name="hostValue">
+                                        <option value="localhost">localhost</option>
+                                    </select>
+                                </div>
+                            </div> -->
+
+                            <div class="form-group">
+                                <label for="inputEmail" class="control-label col-md-2">UserName</label>
+                                <div class="col-sm-10">
+                                    <input name="username" type="text" class="form-control" id="inputEmail" placeholder="User Name">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="inputPassword" class="control-label col-sm-2">Password</label>
+                                <div class="col-sm-10">
+                                    <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                </div>
+                            </div>
+                            <p align="center">
+                            <button type="submit" class="btn btn-default" >Login to OpenStack</button>
+                            </p>
+
+                        </form>
+                    </div>   <!-- panel-boy end -->
+                </div>       <!-- panel end -->
+            </div>
+        </div>              <!--row end -->
+    </div>                  <!-- container end-->
+
+</body>
+
+</html>

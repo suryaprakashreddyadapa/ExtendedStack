@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+
+
+      function handleImageSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+      //  alert(element.cells.item(4).querySelector('input').value);
+        document.getElementById('selectedImage').value = element.cells.item(5).querySelector('input').value;
+
+        //highlight function
+
+        var table = document.getElementById('display-table');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+      }
+      function handleFlavorSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+       // alert(element.cells.item(3).querySelector('input').value);
+        document.getElementById('selectedFlavor').value = element.cells.item(3).querySelector('input').value;
+
+
+         //highlight function
+
+        var table = document.getElementById('display-table2');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+
+      }
+
+
+      function handleNetworkSelectionEvent(element) {
+        // element.addClass('highlight').siblings().removeClass('highlight');
+      //  alert(element.cells.item(4).querySelector('input').value);
+        document.getElementById('selectedNetwork').value = element.cells.item(3).querySelector('input').value;
+
+
+        //highlight function
+
+        var table = document.getElementById('display-table3');
+        var cells = table.getElementsByTagName('td');
+
+    for (var i = 0; i < cells.length; i++) {
+        // Take each cell
+        var cell = cells[i];
+        // do something on onclick event for cell
+        cell.onclick = function () {
+            // Get the row id where the cell exists
+            var rowId = this.parentNode.rowIndex;
+
+            var rowsNotSelected = table.getElementsByTagName('tr');
+            for (var row = 0; row < rowsNotSelected.length; row++) {
+                rowsNotSelected[row].style.backgroundColor = "";
+                rowsNotSelected[row].classList.remove('selected');
+            }
+            var rowSelected = table.getElementsByTagName('tr')[rowId];
+            rowSelected.style.backgroundColor = "lightgray";
+            rowSelected.className += " selected";
+
+            msg = 'The ID of the company is: ' + rowSelected.cells[0].innerHTML;
+            msg += '\nThe cell value is: ' + this.innerHTML;
+            //alert(msg);
+        }
+    }
+
+
+      }
+      window.onload = "/viewFlavors";
+    </script>
+    <title>servertest</title>
+
+     <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="/font/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="col-md-10 col-md-offset-1">
+<div id="wrapper">
+
+
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Project CMPE 297-10 Team 11</a>
+    </div>
+    <ul class="nav navbar-nav">
+                    <li>
+
+                    </li>
+                    <li>
+                        <a href="/Home "></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="/viewFlavors">Flavors</a>
+                    </li>
+                    <li>
+                        <a href="/viewImages">Images</a>
+                    </li>
+                    <li>
+                        <a href="/viewNetworks">Networks</a>
+                    </li>
+                    <li>
+                        <a href="/viewSecurityGroups">Security Groups</a>
+                    </li>
+                    <li>
+                        <a href="/viewServers">Servers</a>
+                    </li>
+                    <li>
+                        <a href="/viewTokens">Tokens</a>
+                    </li>
+                    <li>
+                        <a href="http://10.0.2.15:8400/wetty/ssh/suryaprakash" target="_blank">Terminal</a>
+                    </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <!--<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+      <li><a href="/"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+    </ul>
+  </div>
+</nav> 
+
+
+
+
+
+<!-- Navigation -->
+
+<div id="page-wrapper">
+   <div class="row">
+       <div class="col-lg-12">
+          
+             <div class="panel panel-default">
+                 <div class="panel-heading">
+	<h4 style="text-align:center; font-weight:bold">Servers</h4>
+		</div>
+                     <div class="panel-body">
+                         <div class="row">
+                            <div class="col-lg-12">
+
+                                        <div class="table-responsive table-bordered">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Server Name</th>
+                                                    <th>Created At</th>
+                                                     <th>Status</th>
+
+                                            </thead>
+                                            <tbody>
+
+                                                     <% servers.forEach(function(server) { %>
+                                                    <tr>
+                                                    <td><%= server.name %></td>
+                                                    <td><%= server.created %></td>
+                                                    <td><%= server.status %></td>
+
+                                                    </tr>
+                                                    <% }); %>
+
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <br><br>
+                                <div class="container">
+                                <button style="text-align:center" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Launch Instance</button>
+
+                                <div class="modal fade" id="myModal" role="dialog">
+                                   <div class="modal-dialog modal-lg">
+
+                                      <div class="modal-content">
+
+                                         <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Launch Instance</h4>
+                                          </div>
+
+                                         <div class="modal-body">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading"></div>
+                                                <div class="panel-body">
+                                                    <div class="row">
+                                                        <div class="col-lg-12">
+
+                                                          <form name="createServerForm" action="/createServer" method="post">
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Instance Name </label><span>*</span>
+                                                                        <input class="form-control" name="instanceName" required>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Availablity Zone</label><span>*</span>
+                                                                        <select class="form-control" name="availabilityZone">
+                                                                            <option>1</option>
+                                                                            <option>2</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Instance Count </label><span>*</span>
+                                                                        <input class="form-control" name="instanceCount" required>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Instance Boot Source </label><span>*</span>
+                                                                        <input class="form-control" name="bootSource">
+                                                                    </div>
+                                                                </div>
+
+                                                                <!-- Flavour table -->
+
+
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                          <h3>Select a Flavor</h3>
+                                                                            <table class=" table table-striped" id="display-table2">
+
+                                                                                <thead>
+                                                                                <tr>
+                                                                                    <th>Flavor Name</th>
+                                                                                    <th>RAM</th>
+                                                                                    <th>VCPUS</th>
+                                                                                    <th></th>
+                                                                                </thead>
+                                                                                <tbody>
+                                                                                  <% flavors.forEach(function(flavor) { %>
+                                                                                    <tr onclick="handleFlavorSelectionEvent(this)">
+                                                                                      <td><%= flavor.name %></td>
+                                                                                      <td><%= flavor.ram %></td>
+                                                                                      <td><%= flavor.vcpus %></td>
+                                                                                        <td>
+                                                                                        <input id="hiddenFlavorId" type="hidden" name="hiddenFlavorId" value=<%= flavor.id %>>
+                                                                                      </td>
+                                                                                      </tr>
+                                                                                 <% }); %>
+                                                                                    <!--dynamic flavour   -->
+
+
+
+
+
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <input type="hidden" id="selectedFlavor" name="selectedFlavor" required>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                          <h3>Select an Image</h3>
+                                                                            <table class=" table table-striped"  id="display-table">
+
+                                                                                <thead>
+                                                                                  <tr>
+                                                                                    <th>Image Name</th>
+                                                                                    <th>Status</th>
+                                                                                    <th>Disk Format</th>
+                                                                                    <th>Size</th>
+                                                                                    <th>Visibility</th>
+                                                                                    <th></th>
+                                                                                  </thead>
+                                                                                <tbody>
+                                                                                  <% images.forEach(function(image) { %>
+                                                                                  <tr onclick="handleImageSelectionEvent(this)">
+                                                                                      <td><%= image.name %></td>
+                                                                                      <td><%= image.status %></td>
+                                                                                      <td><%= image.disk_format %></td>
+                                                                                      <td><%= image.size %></td>
+                                                                                      <td><%= image.visibility %></td>
+                                                                                      <td>
+                                                                                        <input id="hiddenImageId" type="hidden" name="hiddenImageId" value=<%= image.id %>>
+                                                                                      </td>
+                                                                                      <!-- <td><button type="submit" class="btn btn-outline" onclick="handleEvent()">+</button></td> -->
+                                                                                  </tr>
+                                                                                  <% }); %>
+                                                                                  </tbody>
+                                                                              </table>
+                                                                              <input type="hidden" id="selectedImage" name="selectedImage" required>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                <!-- Network table -->
+
+                                                                    <div class="col-lg-6">
+                                                                        <div class="form-group">
+                                                                          <h3>Select a Network</h3>
+                                                                            <table class=" table table-striped" id="display-table3">
+
+                                                                                <thead>
+                                                                                  <tr>
+                                                                                      <th>Name</th>
+                                                                                      <th>Shared</th>
+                                                                                      <th>Status</th>
+                                                                                      <th></th>
+                                                                                  </thead>
+                                                                                <tbody>
+                                                                                  <% networks.forEach(function(network) { %>
+                                                                                  <tr onclick="handleNetworkSelectionEvent(this)">
+                                                                                    <td><%= network.name %></td>
+                                                                                    <td><%= network.shared %></td>
+                                                                                    <td><%= network.status %></td>
+                                                                                    <td>
+                                                                                      <input id="hiddenNetworkId" type="hidden" name="hiddenNetworkId" value=<%= network.id %>>
+                                                                                    </td>
+                                                                                  </tr>
+                                                                                  <% }); %>
+                                                                                </tbody>
+                                                                            </table>
+                                                                            <input type="hidden" id="selectedNetwork" name="selectedNetwork" required>
+
+                                                                        </div>
+                                                                    </div>
+
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label>Security Group</label><span>*</span>
+                                                                        <select class="form-control">
+                                                                          <% securityGroups.forEach(function(securityGroup) { %>
+                                                                            <option><%= securityGroup.name %></option>
+                                                                          <% }); %>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-12">
+                                                                    <p align="right"> <button type="submit" class="btn btn-default btn-lg" data-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-primary btn-lg" >Launch Instance</button> </p></div>
+                                                            </form>
+
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </div>
+
+
+</div>
+
+</div>
+</div>
+</body>
+</html>
